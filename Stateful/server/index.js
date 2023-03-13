@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const router = require('./authRouter');
 
 const PORT = 3000;
 const URI = 'mongodb://127.0.0.1:27017/auth_stateful_db';
@@ -15,6 +16,7 @@ const corsConfig = {
 
 app.use(cors(corsConfig));
 app.use(express.json());
+app.use(router);
 
 (async function bootstrap() {
   try {
